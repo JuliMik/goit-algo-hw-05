@@ -78,4 +78,3 @@ file_path = sys.argv[1]
 display_log_counts(count_logs_by_level(load_logs(file_path)))
 if len(sys.argv) > 2:
     display_level_logs(load_logs(file_path), sys.argv[2])
-
