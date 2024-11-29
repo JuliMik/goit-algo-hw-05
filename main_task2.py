@@ -4,7 +4,7 @@ from typing import Callable
 
 # Функція яка повертає генератор, що ітерує по всіх дійсних числах у тексті.
 def generator_numbers(text: str):
-    for digit in re.findall(r'\d+\.\d+', text):
+    for digit in re.findall(r' \d+\.\d+ ', text):
         try:
             yield float(digit)
         except ValueError:
@@ -14,7 +14,7 @@ def generator_numbers(text: str):
 # Функція для обчислення загальної суми чисел у вхідному рядку
 def sum_profit(text: str, func: Callable):
     sum_digits = 0
-    for digit in generator_numbers(text):
+    for digit in func(text):
         sum_digits += digit
     return sum_digits
 
